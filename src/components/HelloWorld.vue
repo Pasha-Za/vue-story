@@ -1,6 +1,10 @@
 <template>
   <div class="hello">
+    <slot />
     <h1>{{ msg }}</h1>
+    <button @click="logger">
+      click me
+    </button>
     <p>
       For a guide and recipes on how to configure / customize this project,<br />
       check out the
@@ -115,6 +119,11 @@ export default {
   name: "HelloWorld",
   props: {
     msg: String
+  },
+  methods: {
+    logger() {
+      console.log('test');
+    }
   }
 };
 </script>
