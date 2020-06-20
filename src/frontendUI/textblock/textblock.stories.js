@@ -1,6 +1,6 @@
-import markup from './textblock.html';
-import HelloWorld from '../../components/HelloWorld.vue';
-import {initComponent} from '../helpers/initComponent';
+import markup from "./textblock.html";
+import HelloWorld from "../../components/HelloWorld.vue";
+import { initComponent } from "../helpers/initComponent";
 
 export default {
   title: "Text block"

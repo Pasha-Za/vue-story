@@ -22,6 +22,12 @@ module.exports = {
                  loader: 'html-loader'
              }
          });
+         config.resolve.alias = {
+             // enable absolute path while running storybook
+             "@": path.resolve(__dirname, "../src"),
+             // usage runtimecompiler for vue templates
+             'vue$': 'vue/dist/vue.esm.js',
+         };
 
          // Return the altered config
          return config;
