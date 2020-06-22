@@ -14,19 +14,30 @@
     </p>
     <h3>Installed CLI Plugins</h3>
     <Logger/>
+    <LazyExample v-if="lazy"/>
   </div>
 </template>
 
 <script>
-// import Logger from './Logger/Logger';
 import Logger from '@/components/Logger/Logger';
 export default {
   name: "HelloWorld",
   components: {
-    Logger
+    Logger,
+    LazyExample: () => import('@/components/LazyExample/LazyExample')
   },
   props: {
     msg: String
+  },
+  data() {
+    return {
+      lazy: false
+    };
+  },
+  mounted() {
+    setTimeout(() => {
+      this.lazy = true;
+    }, 2000);
   },
   methods: {
     logger() {

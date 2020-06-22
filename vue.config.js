@@ -1,19 +1,19 @@
 const config = require("./projectconfig");
-// const path = require('path');
+const path = require('path');
 
 // const vueSrc = "./src";
+const buildFolder = config.directories.themeBuildDirectory + config.currentWebsite;
 /**
  *
  * @type {{lintOnSave: boolean, configureWebpack: {}, compiler: boolean, outputDir: string, dll: boolean, publicPath: string}}
  */
 const vueConfig = {
   publicPath: "",
-  outputDir: `${__dirname}/${config.directories.themeBuildDirectory +
-    config.currentWebsite}`,
+  outputDir: `${__dirname}/${buildFolder}`,
   // whether to use eslint-loader for lint on save.
   // valid values: true | false | 'error'
   // when set to 'error', lint errors will cause compilation to fail.
-  lintOnSave: false,
+  lintOnSave: true,
   // use the full build with in-browser compiler?
   // https://vuejs.org/v2/guide/installation.html#Runtime-Compiler-vs-Runtime-only
   runtimeCompiler: true,
@@ -23,7 +23,9 @@ const vueConfig = {
   configureWebpack: {
     output: {
       filename: config.bundle.jsBundleName,
-      chunkFilename: config.bundle.jsVendorsName,
+      path: path.resolve(__dirname, buildFolder),
+      // chunkFilename: config.bundle.jsVendorsName,
+      chunkFilename: '[id].js'
     },
     // resolve: {
     //   alias: {
@@ -55,7 +57,9 @@ const vueConfig = {
     // sass-loader, use { sass: { ... } }
     loaderOptions: {},
     extract: {
+      path: path.resolve(__dirname, buildFolder),
       filename: config.bundle.cssBundleName,
+      chunkFilename: '[id].css'
     },
   },
   // use thread-loader for babel & TS in production build
@@ -95,12 +99,14 @@ const vueConfig = {
 
   chainWebpack(webpackConfig) {
     //appy only for production build
-    // delete HTML related webpack plugins
-    // webpackConfig.plugins.delete("html");
-    // webpackConfig.plugins.delete("preload");
-    // webpackConfig.plugins.delete("prefetch");
-    // for some reason PWA breaks vue-cli build
-    webpackConfig.plugins.delete("pwa");
+    if (process.env.NODE_ENV === 'production') {
+      // delete HTML related webpack plugins (prevents from building index.html)
+      webpackConfig.plugins.delete("html");
+      webpackConfig.plugins.delete("preload");
+      webpackConfig.plugins.delete("prefetch");
+      // for some reason PWA breaks vue-cli build
+      webpackConfig.plugins.delete("pwa");
+    }
 
     // TODO Configuration to extract img/svg from the bundle
     webpackConfig.module

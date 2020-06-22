@@ -1,8 +1,8 @@
 import Vue from "vue";
 // adding components to the project
-import HellowWorld from "./components/HelloWorld.vue";
-import Logger from "./components/Logger/Logger.vue";
-// import Logger from '@Components/Logger/Logger.vue';
+// import HellowWorld from "./components/HelloWorld.vue";
+import Logger from '@/components/Logger/Logger';
+const HellowWorld = () => import(/* webpackChunkName: "hello" */ '@/components/HelloWorld');
 
 import store from "./store";
 
