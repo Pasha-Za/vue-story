@@ -4,7 +4,6 @@ import { configure } from '@storybook/vue';
 
 import Vue from 'vue';
 import MqHandler from '../src/scripts/helpers/mqHandler';
-
 // Configure MqHandler
 MqHandler.getMqHandler({
     small: 768,
@@ -12,9 +11,12 @@ MqHandler.getMqHandler({
 });
 
 // Import your global components.
+import LoadScript from '../src/scripts/components/loadscript/loadscript.vue';
 import Logger from '../src/scripts/components/Logger/Logger';
 
+
 // Register global components.
+Vue.component(LoadScript.name, LoadScript);
 Vue.component(Logger.name, Logger);
 
 configure(require.context('../src', true, /\.stories\.js$/), module);

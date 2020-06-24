@@ -21,7 +21,7 @@
 <script>
 import Logger from '@/scripts/components/Logger/Logger';
 export default {
-  name: "HelloWorld",
+  name: "hello-world",
   components: {
     Logger,
     LazyExample: () => import('@/scripts/components/LazyExample/LazyExample')
