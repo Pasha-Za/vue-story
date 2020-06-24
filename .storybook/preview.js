@@ -1,17 +1,11 @@
-import '!style-loader!css-loader!sass-loader!../src/main.scss';
+import '!style-loader!css-loader!sass-loader!../src/styles/main.scss';
 
 import { configure } from '@storybook/vue';
 
 import Vue from 'vue';
 
-// Import Vue plugins
-import Vuex from 'vuex';
-
 // Import your global components.
-import Logger from '../src/components/Logger/Logger';
-
-// Install Vue plugins.
-Vue.use(Vuex);
+import Logger from '../src/scripts/components/Logger/Logger';
 
 // Register global components.
 Vue.component(Logger.name, Logger);

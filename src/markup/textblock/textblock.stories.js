@@ -1,5 +1,5 @@
 import markup from "./textblock.html";
-import HelloWorld from "../../components/HelloWorld.vue";
+import HelloWorld from "@/scripts/components/HelloWorld.vue";
 import { initComponent } from "../helpers/initComponent";
 
 export default {

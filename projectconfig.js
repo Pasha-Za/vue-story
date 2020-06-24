@@ -7,12 +7,6 @@ module.exports = {
   },
 
   currentWebsite: "hartmann",
-  autoPrefixerBrowsers: [
-    "last 2 versions",
-    "ie >= 11",
-    "Safari >= 9",
-    "iOS >= 8"
-  ],
   bundle: {
     cssBundleName: "bundle.css",
     jsBundleName: "bundle.js",

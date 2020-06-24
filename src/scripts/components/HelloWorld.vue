@@ -19,12 +19,12 @@
 </template>
 
 <script>
-import Logger from '@/components/Logger/Logger';
+import Logger from '@/scripts/components/Logger/Logger';
 export default {
   name: "HelloWorld",
   components: {
     Logger,
-    LazyExample: () => import('@/components/LazyExample/LazyExample')
+    LazyExample: () => import('@/scripts/components/LazyExample/LazyExample')
   },
   props: {
     msg: String

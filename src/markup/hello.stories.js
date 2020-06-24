@@ -1,5 +1,4 @@
-import Vue from "vue";
-import HelloWorld from "../components/HelloWorld.vue";
+import HelloWorld from "@/scripts/components/HelloWorld.vue";
 
 const props = {
   message: "test message"

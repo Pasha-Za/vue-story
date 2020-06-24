@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-    stories: ['../src/frontendUI/**/*.stories.[tj]s'],
+    stories: ['../src/markup/**/*.stories.[tj]s'],
      webpackFinal: async (config, {
          configType
      }) => {

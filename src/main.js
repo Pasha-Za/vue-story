@@ -1,13 +1,11 @@
 import Vue from "vue";
 // adding components to the project
-// import HellowWorld from "./components/HelloWorld.vue";
-import Logger from '@/components/Logger/Logger';
-const HellowWorld = () => import(/* webpackChunkName: "hello" */ '@/components/HelloWorld');
-
-import store from "./store";
+import Logger from '@/scripts/components/Logger/Logger';
+// code-splitting
+const HellowWorld = () => import(/* webpackChunkName: "hello" */ '@/scripts/components/HelloWorld');
 
 // adding project styles
-import "./main.scss";
+import "./styles/main.scss";
 
 Vue.config.productionTip = false;
 
@@ -15,6 +13,4 @@ Vue.config.productionTip = false;
 Vue.component(HellowWorld.name, HellowWorld);
 Vue.component(Logger.name, Logger);
 
-new Vue({
-  store
-}).$mount("#main-container");
+new Vue({}).$mount("#main-container");
