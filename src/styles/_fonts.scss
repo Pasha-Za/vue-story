@@ -1,0 +1,8 @@
+$font-path: '../fonts/' !default;
+$font-velocity: 'Velocity' !default;
+
+@font-face {
+  font-family: $font-velocity;
+  font-display: auto;
+  src: url($font-path + 'Velocity.woff2') format('woff2'), url($font-path + 'Velocity.woff') format('woff');
+}

@@ -9,6 +9,7 @@ import ResponsiveImage from '@/scripts/components/ResponsiveImage/responsive-ima
 //examples
 import Logger from '@/scripts/components/Logger/Logger';
 import HellowWorld from '@/scripts/components/HelloWorld.vue';
+import WithSvgIcon from '@/scripts/components/WithSvgIcon/WithSvgIcon';
 
 //adding directives
 import { srcset } from '@/scripts/directives/srcset/srcset';
@@ -28,8 +29,10 @@ Vue.use(KeySiteCore);
 // adding components to the VUE
 Vue.component(LoadScript.name, LoadScript);
 Vue.component(ResponsiveImage.name, ResponsiveImage);
+
 Vue.component(HellowWorld.name, HellowWorld);
 Vue.component(Logger.name, Logger);
+Vue.component(WithSvgIcon.name, WithSvgIcon);
 
 // adding directives to the VUE
 Vue.directive(srcset.name, srcset);

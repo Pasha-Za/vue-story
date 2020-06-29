@@ -39,6 +39,7 @@
     "stylelint-scss": "^3.18.0",
     "vue-cli-plugin-storybook": "^1.2.2",
     "vue-loader": "^15.9.2",
+    "vue-svg-loader": "^0.16.0",
     "vue-template-compiler": "^2.6.11"
   },
   "gitHooks": {

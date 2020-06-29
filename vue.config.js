@@ -1,14 +1,14 @@
-const config = require("./projectconfig");
+const config = require('./projectconfig');
 const path = require('path');
 
-// const vueSrc = "./src";
+// const vueSrc = './src';
 const buildFolder = config.directories.themeBuildDirectory + config.currentWebsite;
 /**
  *
  * @type {{lintOnSave: boolean, configureWebpack: {}, compiler: boolean, outputDir: string, dll: boolean, publicPath: string}}
  */
 const vueConfig = {
-  publicPath: "",
+  publicPath: '',
   outputDir: `${__dirname}/${buildFolder}`,
   // whether to use eslint-loader for lint on save.
   // valid values: true | false | 'error'
@@ -29,7 +29,7 @@ const vueConfig = {
     },
     // resolve: {
     //   alias: {
-    //     "@": path.resolve(__dirname, vueSrc)
+    //     '@': path.resolve(__dirname, vueSrc)
     //   },
     //   extensions: ['.js', '.vue', '.json']
     // }
@@ -64,7 +64,7 @@ const vueConfig = {
   },
   // use thread-loader for babel & TS in production build
   // enabled by default if the machine has more than 1 cores
-  parallel: require("os").cpus().length > 1,
+  parallel: require('os').cpus().length > 1,
 
   // split vendors using autoDLLPlugin?
   // can also be an explicit Array of dependencies to include in the DLL chunk.
@@ -101,29 +101,33 @@ const vueConfig = {
     //appy only for production build
     if (process.env.NODE_ENV === 'production') {
       // delete HTML related webpack plugins (prevents from building index.html)
-      webpackConfig.plugins.delete("html");
-      webpackConfig.plugins.delete("preload");
-      webpackConfig.plugins.delete("prefetch");
+      webpackConfig.plugins.delete('html');
+      webpackConfig.plugins.delete('preload');
+      webpackConfig.plugins.delete('prefetch');
       // for some reason PWA breaks vue-cli build
-      webpackConfig.plugins.delete("pwa");
+      webpackConfig.plugins.delete('pwa');
     }
 
-    // TODO Configuration to extract img/svg from the bundle
     webpackConfig.module
-      .rule("images")
-      .use("url-loader")
-      .loader("url-loader")
+      .rule('images')
+      .use('url-loader')
+      .loader('url-loader')
       .tap((options) =>
         Object.assign(options, {
           limit: 1,
         })
       );
 
-    // TODO Add support to import SVG as a vue module
-    const svgRule = webpackConfig.module.rule("svg");
+    const svgRule = webpackConfig.module.rule('svg');
+
     svgRule.uses.clear();
 
-    svgRule.use("vue-svg-loader").loader("vue-svg-loader");
+    svgRule
+      .use('babel-loader')
+      .loader('babel-loader')
+      .end()
+      .use('vue-svg-loader')
+      .loader('vue-svg-loader');
   },
 };
 

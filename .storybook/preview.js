@@ -16,6 +16,7 @@ import ResponsiveImage from '@/scripts/components/ResponsiveImage/responsive-ima
 
 import Logger from '../src/scripts/components/Logger/Logger';
 import HellowWorld from '@/scripts/components/HelloWorld.vue';
+import WithSvgIcon from '@/scripts/components/WithSvgIcon/WithSvgIcon';
 
 import { srcset } from '@/scripts/directives/srcset/srcset';
 
@@ -25,6 +26,7 @@ Vue.component(ResponsiveImage.name, ResponsiveImage);
 
 Vue.component(Logger.name, Logger);
 Vue.component(HellowWorld.name, HellowWorld);
+Vue.component(WithSvgIcon.name, WithSvgIcon);
 
 Vue.directive(srcset.name, srcset);
 
