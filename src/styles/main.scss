@@ -1,5 +1,8 @@
+@import 'fonts';
+@import 'core';
+
 .test {
-    background: url('../assets/logo.png');
+    background: url(../assets/logo.png);
     color: green;
     a{
         color: green;

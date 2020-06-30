@@ -1,5 +1,4 @@
 module.exports = {
-  extends: ["stylelint-config-sonarqube"],
   plugins: ["stylelint-scss"],
   rules: {
     "at-rule-no-unknown": [
